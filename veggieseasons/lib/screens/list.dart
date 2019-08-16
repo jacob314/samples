@@ -30,18 +30,25 @@ class ListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoTabView(
       builder: (context) {
-        String dateString = DateFormat("MMMM y").format(DateTime.now());
+        String dateString2 = DateFormat("MMMM y").format(DateTime.now());
 
-        final appState =
+        final appState2 =
             ScopedModel.of<AppState>(context, rebuildOnChange: true);
-        final prefs =
+        final prefs2 =
             ScopedModel.of<Preferences>(context, rebuildOnChange: true);
 
         return DecoratedBox(
           decoration: BoxDecoration(color: Color(0xffffffff)),
           child: ListView.builder(
-            itemCount: appState.allVeggies.length + 2,
+            itemCount: appState2.allVeggies.length + 2,
             itemBuilder: (context, index) {
+              print("XXX got here 6");
+              String dateString = DateFormat("MMMM y").format(DateTime.now());
+              final appState =
+              ScopedModel.of<AppState>(context, rebuildOnChange: true);
+              final prefs =
+              ScopedModel.of<Preferences>(context, rebuildOnChange: true);
+
               if (index == 0) {
                 return Padding(
                   padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
@@ -49,7 +56,7 @@ class ListScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(dateString.toUpperCase(), style: Styles.minorText),
-                      Text('In season today', style: Styles.headlineText),
+                      Text('In season todayZz', style: Styles.headlineText),
                     ],
                   ),
                 );
